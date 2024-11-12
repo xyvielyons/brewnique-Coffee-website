@@ -4,7 +4,6 @@ import Image from 'next/image'
 import { Button } from '@nextui-org/react'
 import ShinyButton from '../ui/shiny-button'
 import { FiArrowUpRight } from "react-icons/fi";
-
 const Home = () => {
   return (
     <div className='flex flex-col gap-4 md:flex-row md:py-[40px]'>
