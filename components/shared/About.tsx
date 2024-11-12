@@ -6,7 +6,7 @@ import TypingAnimation from '../ui/typing-animation'
 
 const About = () => {
   return (
-    <div className='bg-primarybasecolor w-full'>
+    <div className='bg-primarybasecolor w-full pb-[24px] md:pb-[48px]'>
         <div className="p-2 flex flex-row items-center w-full justify-around md:w-fit md:gap-8 lg:gap-12 md:ml-[48px] lg:ml-[80px]">
             <div className="">
                 <h1 className='text-white font-bold text-[20px]'>Ingredients</h1>
@@ -34,7 +34,7 @@ const About = () => {
 
 
 
-        <div className="w-full flex justify-center items-center mt-[48px] flex-col md:flex-row md:px-[80px]">
+        <div className="w-full flex justify-center items-center mt-[48px] flex-col md:flex-row lg:px-[80px]">
             <div className="md:max-w-[500px] md:max-h-[500px] px-12 md:px-2 w-full relative">
                 <Image src="/vector.svg" alt='coffee-blob' width={800} height={800}></Image>
                 <div className="bg-white w-fit p-[4px] absolute top-[200px] right-[10px] md:right-0 lg:top-[300px]">
