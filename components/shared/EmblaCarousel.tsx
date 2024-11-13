@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef } from 'react'
+import Image from 'next/image'
 import {
   EmblaCarouselType,
   EmblaEventType,
@@ -12,7 +13,7 @@ import {
 } from './EmblaCarouselArrowButtons'
 import { DotButton, useDotButton } from './EmblaCarouselDotButton'
 import Autoplay from "embla-carousel-autoplay";
-
+import { SlideDetails } from '@/constants/Slides'
 const TWEEN_FACTOR_BASE = 0.84
 
 const numberWithinRange = (number: number, min: number, max: number): number =>
@@ -25,7 +26,7 @@ type PropType = {
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
   const { slides, options } = props
-  const [emblaRef, emblaApi] = useEmblaCarousel(options,[Autoplay({ delay: 3000 })])
+  const [emblaRef, emblaApi] = useEmblaCarousel(options,[Autoplay({ delay: 5000 })])
   const tweenFactor = useRef(0)
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
@@ -98,15 +99,25 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     <div className="embla">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
-          {slides.map((index) => (
-            <div className="embla__slide" key={index}>
-              <img
-                className="embla__slide__img"
-                src={`https://picsum.photos/600/350?v=${index}`}
-                alt="Your alt text"
-              />
+          {SlideDetails.map((slide,i)=>(
+            <div className="embla__slide relative flex" key={i}>
+            <Image
+              className="embla__slide__img"
+              src={slide.picture}
+              alt={slide.name}
+              width={1024}
+              height={1024}
+            />
+            <div className="p-4 absolute bottom-[20px] bg-black opacity-75">
+              <h1 className='text-white font-bold text-[28px]'>{slide.name}</h1>
+              <p className='text-slate-100 font-medium text-sm'>{slide.description}</p>
             </div>
+          </div>
+
           ))}
+            
+           
+          
         </div>
       </div>
 
