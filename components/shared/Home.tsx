@@ -4,7 +4,14 @@ import Image from 'next/image'
 import { Button } from '@nextui-org/react'
 import ShinyButton from '../ui/shiny-button'
 import { FiArrowUpRight } from "react-icons/fi";
+import { useAppDispatch } from '@/store/hooks/hooks'
+import { activate } from '@/store/slices/chatSlice'
 const Home = () => {
+    const dispatch = useAppDispatch();
+
+    const openChatBox = ()=>{
+        dispatch(activate())
+    }
   return (
     <div className='flex flex-col gap-4 md:flex-row md:py-[40px]'>
         <div className="p-6 w-full flex flex-col gap-4 md:mt-[42px] lg:mt-[80px]  lg:w-full">
@@ -13,7 +20,7 @@ const Home = () => {
                 <p className='font-medium text-[16px] text-gray-700'>At Brewnique, we craft coffee with passion, using sustainably sourced beans for rich flavor and bold aroma. Experience the quality and care in every cup.</p>
             </div>
             <div className="flex gap-4">
-                <ShinyButton className='bg-primarybasecolor text-white'>Make a reservation</ShinyButton>
+                <ShinyButton func={openChatBox} className='bg-primarybasecolor text-white'>Make a reservation</ShinyButton>
                 <Button className='text-gray-600 hover:text-primarycolor'startContent={<FiArrowUpRight className='w-[24px] h-[24px]'/>} radius='none'>See our Menu</Button>
             </div>
         </div>

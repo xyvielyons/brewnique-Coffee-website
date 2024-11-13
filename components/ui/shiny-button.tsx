@@ -28,13 +28,15 @@ const animationProps = {
 interface ShinyButtonProps {
   children: React.ReactNode;
   className?: string;
+  func?:any;
 }
 
-const ShinyButton = ({ children, className, ...props }: ShinyButtonProps) => {
+const ShinyButton = ({ children, className,func,...props }: ShinyButtonProps) => {
   return (
     <motion.button
       {...animationProps}
       {...props}
+      onClick={func}
       className={cn(
         "relative px-4 py-2 font-medium transition-shadow duration-300 ease-in-out hover:shadow border-none",
         className

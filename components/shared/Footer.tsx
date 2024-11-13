@@ -1,8 +1,21 @@
 import React from 'react'
-
+import { FaSquareFacebook } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa6";
+import { FaSquareInstagram } from "react-icons/fa6";
+import Link from 'next/link';
 const Footer = () => {
+    const currentYear = new Date().getFullYear();
   return (
-    <div>Footer</div>
+    <div className='bg-primarybasecolor py-[48px] flex flex-col gap-4'>
+        <div className="flex flex-row w-full justify-center items-center cursor-pointer">
+            <Link href=""><FaLinkedin className="w-[24px] h-[24px] text-slate-200 m-2 hover:text-slate-600 active:text-slate-600"></FaLinkedin></Link>
+            <Link href=""><FaSquareFacebook className="w-[24px] h-[24px] text-slate-200 m-2 hover:text-slate-600 active:text-slate-600"></FaSquareFacebook></Link>
+            <Link href=""><FaSquareInstagram className="w-[24px] h-[24px] text-slate-200 m-2 hover:text-slate-600 active:text-slate-600"></FaSquareInstagram></Link>
+        </div>
+        <div className="flex flex-row w-full justify-center items-center cursor-pointer">
+            <h1 className='text-white text-md font-medium'>brewnique©<span>{currentYear}</span>. All rights reserved</h1>
+        </div>
+    </div>
   )
 }
 
