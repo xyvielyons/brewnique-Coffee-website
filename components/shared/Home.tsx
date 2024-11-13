@@ -30,7 +30,7 @@ const Home = () => {
         </div>
         <div className="w-full flex items-center justify-center md:absolute md:w-fit md:top-[180px] lg:right-[24px] md:right-[16px]">
             <div className="md:max-w-[380] md:max-h-[380] md:relative lg:max-w-[500] lg:max-h-[500]">
-                 <Image src="/Hero.png" alt='hero image' width={800} height={800}></Image>
+                 <Image src="/hero.png" alt='hero image' width={800} height={800}></Image>
             </div>
             
         </div>
