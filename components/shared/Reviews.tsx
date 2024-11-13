@@ -99,9 +99,9 @@ const ReviewCard = ({
 export default function MarqueeDemo() {
   return (
     <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border md:shadow-xl">
-        <div className="flex items-center justify-center flex-col py-[24px]">
-            <h1 className="text-[32px] text-primarycolor font-bold">Public cheers for us.</h1>
-            <p className="text-md text-slate-600 font-medium">Find out what our customers are saying about us.</p>
+        <div className="flex items-center justify-center flex-col py-[24px] pb-4">
+            <h1 className="md:text-[32px] text-[24px] text-primarycolor font-bold">Public cheers for us.</h1>
+            <p className="text-sm text-slate-600 font-medium">Find out what our customers are saying about us.</p>
         </div>
       <Marquee pauseOnHover className="[--duration:20s]">
         {firstRow.map((review) => (

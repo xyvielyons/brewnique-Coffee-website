@@ -12,7 +12,6 @@ export default function NavbarComponent() {
     "Menu",
     "Facilities",
     "Reviews",
-    "Reservation"
   ];
 
   return (
@@ -46,11 +45,6 @@ export default function NavbarComponent() {
       <NavbarItem>
         <Link color="foreground" href="#Reviews">
           Reviews
-        </Link>
-      </NavbarItem>
-      <NavbarItem>
-        <Link color="foreground" href="#Reservation">
-          Reservation
         </Link>
       </NavbarItem>
     </NavbarContent>
