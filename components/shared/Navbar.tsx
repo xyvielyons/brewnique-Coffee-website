@@ -1,78 +1,198 @@
 'use client'
-import React from "react";
-import {Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
-import Image from "next/image";
-import { FaSquareFacebook } from "react-icons/fa6";
-import { FaLinkedin } from "react-icons/fa6";
-import { FaSquareInstagram } from "react-icons/fa6";
+import React,{useState,useEffect} from "react";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Button} from "@nextui-org/react";
+import { FaSquareXTwitter } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa";
+import {Link} from 'react-scroll';
+import Image from "next/image.js";
+import { motion,useScroll,useMotionValueEvent } from "framer-motion";
 export default function NavbarComponent() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const menuItems = [
-    "Home",
-    "Menu",
-    "Facilities",
-    "Reviews",
-  ];
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [scroll, setScroll] = useState<any>()
+  const [nav,setNav]= useState<string>("Home")
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    setScroll(latest)
+    console.log(latest)
+  });
+
+  useEffect(() => {
+    if(scroll>10){
+      setNav("Home")
+      if(scroll>1200){
+        setNav("Menu")
+        if(scroll>3000){
+          setNav("Facilities")
+          if(scroll>3900){
+            setNav("Reviews")
+          }
+        }
+      }
+    }
+  }, [scroll])
+  
+
+
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} isBordered className="max-w-7xl">
-    <NavbarContent>
-      <NavbarMenuToggle
-        aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-        className="sm:hidden"
-      />
-      <NavbarBrand>
-      <Image src="/brewnique.png" alt="brewnique-logo" width={150} height={100}/>
-      </NavbarBrand>
-    </NavbarContent>
+    <Navbar onMenuOpenChange={setIsMenuOpen} isMenuOpen={isMenuOpen} className="shadow-4dp">
+      <NavbarContent>
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="sm:hidden"
+        />
+        <NavbarBrand>
+          <div className="w-[150px] h-full">
+           <Image src="/brewnique.png" width={150} height={100} alt="image logo"></Image>
+          </div>
+          
+        </NavbarBrand>
+      </NavbarContent>
 
-    <NavbarContent className="hidden sm:flex gap-4" justify="center">
-      <NavbarItem>
-        <Link color="foreground" href="#Home">
-          Home
-        </Link>
-      </NavbarItem>
-      <NavbarItem isActive>
-        <Link href="#Menu" aria-current="page">
-          Menu
-        </Link>
-      </NavbarItem>
-      <NavbarItem>
-        <Link color="foreground" href="#Facilities">
-          Facilities
-        </Link>
-      </NavbarItem>
-      <NavbarItem>
-        <Link color="foreground" href="#Reviews">
-          Reviews
-        </Link>
-      </NavbarItem>
-    </NavbarContent>
-    <NavbarContent justify="end">
-      <NavbarItem>
-        <div className="">
-          <Link href="https://www.linkedin.com/in/xyvie-lyons-a8873820a"><FaLinkedin className="w-[24px] h-[24px] text-slate-600 m-2 hover:text-slate-800"></FaLinkedin></Link>
-          <Link href="https://www.facebook.com/profile.php?id=61559700346584"><FaSquareFacebook className="w-[24px] h-[24px] text-slate-600 m-2 hover:text-slate-800 active:text-slate-800"></FaSquareFacebook></Link>
-          <Link href="https://www.instagram.com/xaviertechnologies/"><FaSquareInstagram className="w-[24px] h-[24px] text-slate-600 m-2 hover:text-slate-800 active:text-slate-800"></FaSquareInstagram></Link>
-        </div>
-      </NavbarItem>
-    </NavbarContent>
-    <NavbarMenu>
-      {menuItems.map((item, index) => (
-        <NavbarMenuItem key={`${item}-${index}`}>
-          <Link
-            color={
-              index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
-            }
-            className="w-full"
-            href="#"
-            size="lg"
-          >
-            {item}
+      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+        <NavbarItem>
+          <div className="flex flex-col items-center">
+              <Link to="Home" spy={true} smooth={true} offset={-60} duration={500} className={`text-[16px] ${nav==="Home"?"text-primarycolor font-medium":"text-gray-600"}`} onClick={()=>setNav("home")}>
+                Home
+              </Link>
+              {nav==="Home" && <div className="w-6 h-1 bg-primarycolor rounded-sm"></div>}
+              
+              
+          </div>
+        </NavbarItem>
+
+        <NavbarItem>
+        <div className="flex flex-col items-center">
+          <Link to="Menu" spy={true} smooth={true} offset={-60} duration={500} aria-current="page" className={`text-[16px] ${nav==="Menu"?"text-primarycolor font-medium":"text-gray-600"}`} onClick={()=>setNav("Menu")}>
+            Menu
           </Link>
-        </NavbarMenuItem>
-      ))}
-    </NavbarMenu>
-  </Navbar>
+          {nav==="Menu" && <div className="w-6 h-1 bg-primarycolor rounded-sm"></div>}
+        </div>
+        </NavbarItem>
+
+        <NavbarItem>
+        <div className="flex flex-col items-center">
+          <Link to="Facilities" spy={true} smooth={true} offset={-60} duration={500} className={`text-[16px]  ${nav==="Facilities"?"text-primarycolor font-medium":"text-gray-600"}`} onClick={()=>setNav("Facilities")}>
+            Facilities
+          </Link>
+          {nav==="Facilities" && <div className="w-6 h-1 bg-primarycolor rounded-sm"></div>}
+
+          </div>
+        </NavbarItem>
+        <NavbarItem>
+        <div className="flex flex-col items-center">
+          <Link to="Reviews" spy={true} smooth={true} offset={-60} duration={500} className={`text-[16px]  ${nav==="Reviews"?"text-primarycolor font-medium":"text-gray-600"}`} onClick={()=>setNav("Reviews")}>
+            Reviews
+          </Link>
+          {nav==="Reviews" && <div className="w-6 h-1 bg-primarycolor rounded-sm"></div>}
+        </div>
+        </NavbarItem>
+        
+      </NavbarContent>
+      <NavbarContent justify="end">
+        <NavbarItem>
+          <div className="flex space-x-[2px]">
+              <a href="https://x.com/xyvielyons" target='_blank'><button className="h-[40px] w-[40px]  flex items-center justify-center ">
+                <FaSquareXTwitter className="w-[24px] h-[24px] text-gray-600 hover:text-gray-800"/>
+              </button></a>
+              <a href="https://www.instagram.com/xaviertechnologies/" target='_blank'><button className="h-[40px] w-[40px]  flex items-center justify-center ">
+                <FaInstagram className="w-[24px] h-[24px] text-gray-600 hover:text-gray-800"/>
+              </button></a>
+              <a href="https://www.linkedin.com/in/xyvie-lyons-a8873820a" target='_blank'><button className="h-[40px] w-[40px]  flex items-center justify-center">
+                <FaLinkedin className="w-[24px] h-[24px] text-gray-600 hover:text-gray-800"/>
+              </button></a>
+          </div>
+          
+        </NavbarItem>
+      </NavbarContent>
+      <NavbarMenu>
+        
+          <NavbarMenuItem>
+              <div className="flex items-center border-b-1 border-gray-300 ">
+              <Link
+                to="Home" 
+                spy={true} 
+                smooth={true} 
+                offset={-60} 
+                duration={500}
+                className={`w-full p-[16px] hover:bg-orange-200 ${nav==="Home"?"text-primarybasecolor text-2xl font-medium":"text-gray-600 text-xl"}`}
+                href={`#Home`}
+                onClick={()=>{
+                  setNav("Home")
+                  setIsMenuOpen(false)
+                }}
+              >
+                Home
+              </Link>
+              {nav==="Home" && <div className="w-10 h-2 bg-primarybasecolor rounded-sm"></div>}
+              </div>
+          </NavbarMenuItem>
+          <NavbarMenuItem>
+              <div className="flex items-center border-b-1 border-gray-300 ">
+              <Link
+                to="Menu" 
+                spy={true} 
+                smooth={true} 
+                offset={-60} 
+                duration={500}
+                className={`w-full p-[16px] hover:bg-orange-200 ${nav==="Menu"?"text-primarybasecolor text-2xl font-medium":"text-gray-600 text-xl"}`}
+                href={`#Menu`}
+                onClick={()=>{
+                  setNav("Menu")
+                  setIsMenuOpen(false)
+                }}
+              >
+                Menu
+              </Link>
+              {nav==="Menu" && <div className="w-10 h-2 bg-primarybasecolor rounded-sm"></div>}
+              </div>
+          </NavbarMenuItem>
+          <NavbarMenuItem>
+              <div className="flex items-center border-b-1 border-gray-300 ">
+              <Link
+                to="Facilities" 
+                spy={true} 
+                smooth={true} 
+                offset={-60} 
+                duration={500}
+                className={`w-full p-[16px] hover:bg-orange-200 ${nav==="Facilities"?"text-primarybasecolor text-2xl font-medium":"text-gray-600 text-xl"}`}
+                href={`#Facilities`}
+                onClick={()=>{
+                  setNav("Facilities")
+                  setIsMenuOpen(false)
+
+                }}
+              >
+                Facilities
+              </Link>
+              {nav==="Facilities" && <div className="w-10 h-2 bg-primarybasecolor rounded-sm"></div>}
+              </div>
+          </NavbarMenuItem>
+          <NavbarMenuItem>
+              <div className="flex items-center border-b-1 border-gray-300 ">
+              <Link
+                to="Reviews" 
+                spy={true} 
+                smooth={true} 
+                offset={-60} 
+                duration={500}
+                className={`w-full p-[16px] hover:bg-orange-200 ${nav==="Reviews"?"text-primarybasecolor text-2xl font-medium":"text-gray-600 text-xl"}`}
+                href={`#Reviews`}
+                onClick={()=>{
+                  setNav("Reviews")
+                  setIsMenuOpen(false)
+
+                }}
+              >
+                Reviews
+              </Link>
+              {nav==="Reviews" && <div className="w-10 h-2 bg-primarybasecolor rounded-sm"></div>}
+              </div>
+          </NavbarMenuItem>
+      </NavbarMenu>
+    </Navbar>
+   
   );
 }
+

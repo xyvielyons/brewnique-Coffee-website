@@ -5,6 +5,7 @@ import { Button } from '@nextui-org/react'
 import ShinyButton from '../ui/shiny-button'
 import { FiArrowUpRight } from "react-icons/fi";
 import { useAppDispatch } from '@/store/hooks/hooks'
+import Link from 'next/link'
 import { activate } from '@/store/slices/chatSlice'
 const Home = () => {
     const dispatch = useAppDispatch();
@@ -21,7 +22,7 @@ const Home = () => {
             </div>
             <div className="flex gap-4">
                 <ShinyButton func={openChatBox} className='bg-primarybasecolor text-white'>Make a reservation</ShinyButton>
-                <Button className='text-gray-600 hover:text-primarycolor'startContent={<FiArrowUpRight className='w-[24px] h-[24px]'/>} radius='none'>See our Menu</Button>
+                <Link href="#Menu"><Button className='text-gray-600 hover:text-primarycolor'startContent={<FiArrowUpRight className='w-[24px] h-[24px]'/>} radius='none' >See our Menu</Button></Link>
             </div>
         </div>
         <div className="hidden md:block md:w-full lg:w-full">
