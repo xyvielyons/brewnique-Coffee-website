@@ -1,12 +1,12 @@
 'use client'
 import React,{useState,useEffect} from "react";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Button} from "@nextui-org/react";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem} from "@nextui-org/react";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 import {Link} from 'react-scroll';
 import Image from "next/image.js";
-import { motion,useScroll,useMotionValueEvent } from "framer-motion";
+import { useScroll,useMotionValueEvent } from "framer-motion";
 export default function NavbarComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [scroll, setScroll] = useState<any>()

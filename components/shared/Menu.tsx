@@ -9,7 +9,7 @@ const Menu = () => {
             <p className='font-medium text-md text-gray-600 text-center'>Experience the World of Coffee: From Classic Brews to Modern Favorites</p>
         </div>
         <div className="flex flex-col gap-2 md:gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 w-[350px] mx-auto md:w-full md:px-[40px]">
-            {MenuDetails.map((item:any,i:any)=>(
+            {MenuDetails.map((item,i)=>(
                 
                 <div key={i} className="border-gray-300 border-[1.5px] p-2 relative flex flex-col h-[430px] rounded-sm">
                     <div className="">

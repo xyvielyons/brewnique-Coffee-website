@@ -36,12 +36,12 @@ const About = () => {
 
         <div className="w-full flex justify-center items-center mt-[48px] flex-col md:flex-row lg:px-[80px]">
             <div className="md:max-w-[500px] md:max-h-[500px] px-12 md:px-2 w-full relative">
-                <Image src="/vector.svg" alt='coffee-blob' width={800} height={800}></Image>
+                <Image src="/Vector.svg" alt='coffee-blob' width={800} height={800}></Image>
                 <div className="bg-white w-fit p-[4px] absolute top-[200px] right-[10px] md:right-0 lg:top-[300px]">
                     <TypingAnimation
                     className="text-md font-bold text-black"
                     text="I Love Coffee"
-                    duration={800}
+                    duration={500}
                     />
                 </div>
             </div>

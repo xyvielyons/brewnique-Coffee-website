@@ -7,7 +7,7 @@ import Facility from "@/components/shared/Facility";
 import Reviews from "@/components/shared/Reviews";
 import Footer from "@/components/shared/Footer";
 import Tawk from "@/lib/Tawk"
-import { motion, useInView,useAnimation } from "framer-motion";
+import { motion} from "framer-motion";
 import Navbar from "@/components/shared/Navbar";
 
 const BrewniquePage = () => {
