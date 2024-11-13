@@ -26,7 +26,7 @@ type PropType = {
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
   const { slides, options } = props
-  const [emblaRef, emblaApi] = useEmblaCarousel(options,[Autoplay({ delay: 5000 })])
+  const [emblaRef, emblaApi] = useEmblaCarousel(options,[Autoplay({ delay: 8000 })])
   const tweenFactor = useRef(0)
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } =

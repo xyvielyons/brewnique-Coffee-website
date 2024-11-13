@@ -12,9 +12,9 @@ export default {
   		colors: {
   			background: 'hsl(var(--background))',
   			primarycolor: '#4E342E',
-        backgroundbasecolor: "#EFE5DC",
-        primarybasecolor: "#4E342E",
-		accentbasecolor:"#795548",
+  			backgroundbasecolor: '#EFE5DC',
+  			primarybasecolor: '#4E342E',
+  			accentbasecolor: '#795548',
   			foreground: 'hsl(var(--foreground))',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
@@ -59,6 +59,28 @@ export default {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
+  		},
+  		keyframes: {
+  			marquee: {
+  				from: {
+  					transform: 'translateX(0)'
+  				},
+  				to: {
+  					transform: 'translateX(calc(-100% - var(--gap)))'
+  				}
+  			},
+  			'marquee-vertical': {
+  				from: {
+  					transform: 'translateY(0)'
+  				},
+  				to: {
+  					transform: 'translateY(calc(-100% - var(--gap)))'
+  				}
+  			}
+  		},
+  		animation: {
+  			marquee: 'marquee var(--duration) infinite linear',
+  			'marquee-vertical': 'marquee-vertical var(--duration) linear infinite'
   		}
   	}
   },
