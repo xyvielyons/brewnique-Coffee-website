@@ -51,9 +51,9 @@ export default function NavbarComponent() {
     <NavbarContent justify="end">
       <NavbarItem>
         <div className="">
-          <Link href=""><FaLinkedin className="w-[24px] h-[24px] text-slate-600 m-2 hover:text-slate-800"></FaLinkedin></Link>
-          <Link href=""><FaSquareFacebook className="w-[24px] h-[24px] text-slate-600 m-2 hover:text-slate-800"></FaSquareFacebook></Link>
-          <Link href=""><FaSquareInstagram className="w-[24px] h-[24px] text-slate-600 m-2 hover:text-slate-800"></FaSquareInstagram></Link>
+          <Link href="https://www.linkedin.com/in/xyvie-lyons-a8873820a"><FaLinkedin className="w-[24px] h-[24px] text-slate-600 m-2 hover:text-slate-800"></FaLinkedin></Link>
+          <Link href="https://www.facebook.com/profile.php?id=61559700346584"><FaSquareFacebook className="w-[24px] h-[24px] text-slate-600 m-2 hover:text-slate-800 active:text-slate-800"></FaSquareFacebook></Link>
+          <Link href="https://www.instagram.com/xaviertechnologies/"><FaSquareInstagram className="w-[24px] h-[24px] text-slate-600 m-2 hover:text-slate-800 active:text-slate-800"></FaSquareInstagram></Link>
         </div>
       </NavbarItem>
     </NavbarContent>

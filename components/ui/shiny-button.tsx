@@ -38,7 +38,7 @@ const ShinyButton = ({ children, className,func,...props }: ShinyButtonProps) =>
       {...props}
       onClick={func}
       className={cn(
-        "relative px-4 py-2 font-medium transition-shadow duration-300 ease-in-out hover:shadow border-none",
+        "relative px-5 py-3 font-medium transition-shadow duration-300 ease-in-out hover:shadow border-none",
         className
       )}
       style={{ backgroundColor: "#4E342E" }}

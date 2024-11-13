@@ -13,7 +13,7 @@ const Home = () => {
         dispatch(activate())
     }
   return (
-    <div className='flex flex-col gap-4 md:flex-row md:py-[40px]'>
+    <div className='flex flex-col gap-4 md:flex-row md:py-[40px]' id="Home">
         <div className="p-6 w-full flex flex-col gap-4 md:mt-[42px] lg:mt-[80px]  lg:w-full">
             <div className="">
                 <h1 className='headertext text-[40px] text-primarycolor md:text-[48px] lg:text-[52px]'>Brewed to Perfection, Just for You.</h1>

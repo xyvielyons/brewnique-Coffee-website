@@ -108,7 +108,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
               width={1024}
               height={1024}
             />
-            <div className="p-4 absolute bottom-[20px] bg-black opacity-75">
+            <div className="p-4 absolute bottom-[20px] bg-black opacity-85">
               <h1 className='text-white font-bold text-[28px]'>{slide.name}</h1>
               <p className='text-slate-100 font-medium text-sm'>{slide.description}</p>
             </div>

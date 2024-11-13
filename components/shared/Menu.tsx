@@ -3,7 +3,7 @@ import { MenuDetails } from '@/constants/Menu'
 import Image from 'next/image'
 const Menu = () => {
   return (
-    <div className='p-4 flex flex-col gap-4' id='Menu'>
+    <div className='p-4 flex flex-col gap-4 md:py-[48px]' id='Menu'>
         <div className="flex items-center justify-center flex-col">
             <h1 className='text-primarycolor font-bold text-[32px]'>Explore Our Menu</h1>
             <p className='font-medium text-md text-gray-600 text-center'>Experience the World of Coffee: From Classic Brews to Modern Favorites</p>
